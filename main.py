@@ -45,8 +45,8 @@ async def on_message(message):
             )
 
 
-@discord.ext.tasks.loop(time=time(hour=10), reconnect=True)
-# @discord.ext.tasks.loop(time=time(hour=10, tzinfo=tzinfo.tzname("Europe/Paris")), count=None, reconnect=True)
+# 12h = 10 en utc
+@tasks.loop(time=time(hour=12), reconnect=True)
 async def jour_avant_la_cousinade():
     logging.info("JOUR AVANT LA COUSINADE")
     jour_restants = (jour_cousinade - datetime.now()).days
@@ -61,12 +61,14 @@ async def jour_avant_la_cousinade():
 
     channel = client.get_channel(COUSINADE_CHANNEL)
     await channel.send(
-        f"Vu que Eva ne fait plus son travail, je suis obligé de m'y mettre ...\nPlus que {jour_restants} jour{pluriel} avant la cousinade"
+        f"Vu que Eva ne fait plus son travail, je suis obligé de m'y mettre ...\nPlus que **{jour_restants} jour{pluriel}** avant la cousinade"
     )
 
 @tasks.loop(seconds=5.0)
 async def printer():
     logging.info("COUCOU")
+
+printer.start()
 
 load_dotenv()
 TOKEN = os.getenv("DISCORD_TOKEN")
