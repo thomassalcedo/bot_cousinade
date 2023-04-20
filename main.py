@@ -34,12 +34,15 @@ async def on_message(message):
         case "!help":
             await message.channel.send(
                 "```\n\
-+------------------------------------------+\n\
-| Voici la liste de mes fonctionnalités :  |\n\
-+------------------------------------------+\n\
-| !help : Affiche l'aide                   |\n\
-| !quand : Affiche la date de la cousinade |\n\
-+------------------------------------------+```"
++------------------------------------------------------------------------------+\n\
+| Voici la liste de mes fonctionnalités :                                      |\n\
++------------------------------------------------------------------------------+\n\
+| !help : Affiche l'aide                                                       |\n\
+| !quand : Affiche la date de la cousinade                                     |\n\
+| !nouvelle_date : Défini une nouvelle date pour la cousinade (Pas implémenté) |\n\
+| !start : Lance le compte à rebours (Pas implémenté)                          |\n\
+| !stop : Arrête le compte à rebours (Pas implémenté)                          |\n\
++------------------------------------------------------------------------------+```"
             )
         case "!quand":
             await message.channel.send(
