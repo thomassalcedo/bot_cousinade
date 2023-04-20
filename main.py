@@ -3,7 +3,9 @@ from discord.ext import tasks, commands
 import os
 from dotenv import load_dotenv
 from datetime import datetime, time
+import logging
 
+logging.basicConfig(encoding='utf-8', level=logging.INFO)
 
 intents = discord.Intents.default()
 intents.message_content = True
@@ -15,9 +17,9 @@ jour_cousinade = datetime(2023, 5, 27)
 
 @client.event
 async def on_ready():
-    print("Logged in as")
-    print(client.user)
-    print("------")
+    logging.info("Logged in as")
+    logging.info(client.user)
+    logging.info("------")
 
 
 @client.event
@@ -43,13 +45,14 @@ async def on_message(message):
             )
 
 
-@discord.ext.tasks.loop(time=time(hour=10), count=None, reconnect=True)
+@discord.ext.tasks.loop(time=time(hour=10), reconnect=True)
 # @discord.ext.tasks.loop(time=time(hour=10, tzinfo=tzinfo.tzname("Europe/Paris")), count=None, reconnect=True)
 async def jour_avant_la_cousinade():
-    print("JOUR AVANT LA COUSINADE")
+    logging.info("JOUR AVANT LA COUSINADE")
     jour_restants = (jour_cousinade - datetime.now()).days
     pluriel = "s"
 
+    logging.info()
     if jour_restants < 0:
         return
 
