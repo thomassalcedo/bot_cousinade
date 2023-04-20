@@ -28,15 +28,14 @@ async def on_message(message):
 
     match (message.content):
         case "!help":
-            await message.channel.send("--------------------------------------------\
-                                        | Voici la liste de mes fonctionnalités :  |\
+            await message.channel.send("| Voici la liste de mes fonctionnalités :  |\
                                         --------------------------------------------\
-                                        | !help : Affiche l'aide                   |\
-                                        | !quand : Affiche la date de la cousinade |\
-                                        --------------------------------------------\
+                                        |-> !help : Affiche l'aide\
+                                        |-> !quand : Affiche la date de la cousinade\
+                                        ---------------------------------------------\
                                        ")
         case "!quand":
-            await message.channel.send(f"La cousinade aura lieu le {jour_cousinade}")
+            await message.channel.send(f"La cousinade aura lieu le {jour_cousinade.days}/{jour_cousinade.months}/{jour_cousinade.years}")
 
 
 @discord.ext.tasks.loop(time=time(hour=10), count=None, reconnect=True)
