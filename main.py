@@ -52,7 +52,7 @@ async def jour_avant_la_cousinade():
     jour_restants = (jour_cousinade - datetime.now()).days
     pluriel = "s"
 
-    logging.info()
+    logging.info(f"Il reste {jour_restants} jours")
     if jour_restants < 0:
         return
 
@@ -64,6 +64,10 @@ async def jour_avant_la_cousinade():
         f"Vu que Eva ne fait plus son travail, je suis obligé de m'y mettre ...\nPlus que {jour_restants} jour{pluriel} avant la cousinade"
     )
 
+@tasks.loop(seconds=5.0)
+async def printer(self):
+    logging.info(self.index)
+    self.index += 1
 
 load_dotenv()
 TOKEN = os.getenv("DISCORD_TOKEN")
