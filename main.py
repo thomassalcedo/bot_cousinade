@@ -1,5 +1,5 @@
 import discord
-from discord.ext import tasks, commands
+from discord.ext import tasks
 import os
 from dotenv import load_dotenv
 from datetime import datetime, time
@@ -20,6 +20,8 @@ async def on_ready():
     logging.info("Logged in as")
     logging.info(client.user)
     logging.info("------")
+    # await printer.start()
+    await jour_avant_la_cousinade.start()
 
 
 @client.event
@@ -64,11 +66,10 @@ async def jour_avant_la_cousinade():
         f"Vu que Eva ne fait plus son travail, je suis obligé de m'y mettre ...\nPlus que **{jour_restants} jour{pluriel}** avant la cousinade"
     )
 
-@tasks.loop(seconds=5.0)
-async def printer():
-    logging.info("COUCOU")
+# @tasks.loop(seconds=5.0)
+# async def printer():
+#     logging.info("COUCOU")
 
-printer.start()
 
 load_dotenv()
 TOKEN = os.getenv("DISCORD_TOKEN")
