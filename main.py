@@ -29,12 +29,13 @@ async def on_message(message):
     match (message.content):
         case "!help":
             await message.channel.send(
-                "--------------------------------------------\n\
+                "\
+--------------------------------------------\n\
 | Voici la liste de mes fonctionnalités :  |\n\
 --------------------------------------------\n\
 | !help : Affiche l'aide                   |\n\
 | !quand : Affiche la date de la cousinade |\n\
---------------------------------------------\n\
+--------------------------------------------\
 "
             )
         case "!quand":
