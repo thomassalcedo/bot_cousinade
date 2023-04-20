@@ -31,13 +31,21 @@ async def on_message(message):
             await message.channel.send(
                 "\
 --------------------------------------------\n\
-| Voici la liste de mes fonctionnalités :  |\n\
+| Voici la liste de mes fonctionnalités :..|\n\
 --------------------------------------------\n\
-| !help : Affiche l'aide                   |\n\
-| !quand : Affiche la date de la cousinade |\n\
---------------------------------------------\
-"
+| !help : Affiche l'aide...................|\n\
+| !quand : Affiche la date de la cousinade.|\n\
+--------------------------------------------"
             )
+#             await message.channel.send(
+#                 "\
+# ---------\n\
+# | Voici la liste de mes fonctionnalités :\n\
+# ---------\n\
+# | !help : Affiche l'aide\n\
+# | !quand : Affiche la date de la cousinade\n\
+# ---------"
+#             )
         case "!quand":
             await message.channel.send(
                 f"La cousinade aura lieu le {jour_cousinade.day}/{jour_cousinade.month}/{jour_cousinade.year}"
