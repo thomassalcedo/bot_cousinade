@@ -28,12 +28,21 @@ async def on_message(message):
 
     match (message.content):
         case "!help":
-            await message.channel.send("Je ne fais rien de plus pour l'instant")
+            await message.channel.send("--------------------------------------------\
+                                        | Voici la liste de mes fonctionnalités :  |\
+                                        --------------------------------------------\
+                                        | !help : Affiche l'aide                   |\
+                                        | !quand : Affiche la date de la cousinade |\
+                                        --------------------------------------------\
+                                       ")
+        case "!quand":
+            await message.channel.send(f"La cousinade aura lieu le {jour_cousinade}")
 
 
 @discord.ext.tasks.loop(time=time(hour=10), count=None, reconnect=True)
 # @discord.ext.tasks.loop(time=time(hour=10, tzinfo=tzinfo.tzname("Europe/Paris")), count=None, reconnect=True)
 async def jour_avant_la_cousinade():
+    print("JOUR AVANT LA COUSINADE")
     jour_restants = (jour_cousinade - datetime.now()).days
     pluriel = "s"
     
