@@ -65,9 +65,8 @@ async def jour_avant_la_cousinade():
     )
 
 @tasks.loop(seconds=5.0)
-async def printer(self):
-    logging.info(self.index)
-    self.index += 1
+async def printer():
+    logging.info("COUCOU")
 
 load_dotenv()
 TOKEN = os.getenv("DISCORD_TOKEN")
