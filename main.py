@@ -48,8 +48,7 @@ class MyClient(discord.Client):
                 )
 
     # 8h = 10h en utc askip
-    # @tasks.loop(time=time(hour=8), reconnect=True)
-    @tasks.loop(seconds=10.0)
+    @tasks.loop(time=time(hour=8), reconnect=True)
     async def jour_avant_la_cousinade(self):
         logging.info("JOUR AVANT LA COUSINADE")
         jour_restants = (self._jour_cousinade - datetime.now()).days
