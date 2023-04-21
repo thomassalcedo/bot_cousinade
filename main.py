@@ -47,8 +47,9 @@ class MyClient(discord.Client):
                     f"La cousinade aura lieu le **{self._jour_cousinade.day}/{self._jour_cousinade.month}/{self._jour_cousinade.year}**"
                 )
 
-    # 12h = 10 en utc
-    @tasks.loop(time=time(hour=12), reconnect=True)
+    # 8h = 10h en utc askip
+    # @tasks.loop(time=time(hour=8), reconnect=True)
+    @tasks.loop(seconds=10.0)
     async def jour_avant_la_cousinade(self):
         logging.info("JOUR AVANT LA COUSINADE")
         jour_restants = (self._jour_cousinade - datetime.now()).days
@@ -61,7 +62,7 @@ class MyClient(discord.Client):
         if jour_restants == 1:
             pluriel = ""
 
-        channel = self.get_channel(self._cousinade_channel)
+        channel = self.get_channel(int(self._cousinade_channel))
         await channel.send(
             f"Vu que Eva ne fait plus son travail, je suis obligé de m'y mettre ...\nPlus que **{jour_restants} jour{pluriel}** avant la cousinade"
         )
@@ -90,11 +91,13 @@ def main():
     load_dotenv()
     TOKEN = os.getenv("DISCORD_TOKEN")
     COUSINADE_CHANNEL = os.getenv("COUSINADE_CHANNEL")
+    # TEST_CHANNEL = os.getenv("TEST_CHANNEL")
 
     intents = discord.Intents.default()
     intents.message_content = True
 
     client = MyClient(intents=intents, cousinade_channel=COUSINADE_CHANNEL)
+    # client = MyClient(intents=intents, cousinade_channel=COUSINADE_CHANNEL)
     client.run(TOKEN)
 
 if __name__ == "__main__":
