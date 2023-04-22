@@ -22,10 +22,10 @@ RUN apt -y update \
 
 # Redémarrage des daemons et démarrage du service cousinade
 RUN systemctl daemon-reload \
-&& systemctl enable cousinade.service \
-&& systemctl start cousinade.service
+&& systemctl enable cousinade.service
+# && systemctl start cousinade.service
 
-CMD tail -f /dev/null 
+CMD systemctl start cousinade.service && tail -f /dev/null 
 
 # Pour le build :
 # docker build -t bot_cousinade .
