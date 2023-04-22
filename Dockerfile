@@ -17,7 +17,8 @@ RUN python3 -m venv /opt/bot_cousinade \
 && /opt/bot_cousinade/bin/python3 -m pip install --upgrade pip \
 && /opt/bot_cousinade/bin/pip3 install -r /opt/bot_cousinade/requirements.txt
 
-RUN apt install systemctl
+RUN apt -y update \
+&& apt install systemctl -y
 
 # Redémarrage des daemons et démarrage du service cousinade
 RUN systemctl daemon-reload \
