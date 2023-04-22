@@ -3,9 +3,9 @@ FROM python:3.10.6
 # Ajout des fichiers dans le conteneur
 ADD --chown=root:root cousinade.service /etc/systemd/system/cousinade.service
 ADD --chown=root:root .env /opt/bot_cousinade/.env
-ADD main.py /opt/bot_cousinade
-ADD .env /opt/bot_cousinade
-ADD requirements.txt /opt/bot_cousinade
+ADD main.py /opt/bot_cousinade/main.py
+ADD .env /opt/bot_cousinade/.env
+ADD requirements.txt /opt/bot_cousinade/requirements.txt
 
 # Création de l'utilisateur cousinade
 RUN useradd --system --no-create-home --shell=/sbin/nologin cousinade
