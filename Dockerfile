@@ -5,7 +5,7 @@ ADD --chown=root:root cousinade.service /etc/systemd/system/cousinade.service
 ADD --chown=root:root .env /opt/bot_cousinade/.env
 
 # Création de l'utilisateur cousinade
-RUN useradd --system --no-create-home --shell=/sbin/nologin cousinade \
+RUN adduser --system --no-create-home --shell=/sbin/nologin cousinade \
 && chown -R root:cousinade /opt/bot_cousinade \
 && chmod -R 775 /opt/bot_cousinade
 
