@@ -1,0 +1,12 @@
+[Unit]
+Description=Service du bot cousinade
+After=network.target
+
+[Service]
+User=cousinade
+WorkingDirectory=/opt/bot_cousinade
+ExecStart=/opt/bot_cousinade/bin/python3 main.py
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
