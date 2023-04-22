@@ -20,4 +20,4 @@ Pour construire le conteneur :
 `docker build -t bot_cousinade .`
 
 Pour lancer le conteneur :  
-`docker run --rm bot_cousinade`
+`docker run -d bot_cousinade`
