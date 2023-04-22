@@ -12,10 +12,9 @@ RUN useradd --system --no-create-home --shell=/sbin/nologin cousinade
 RUN chown -R root:cousinade /opt/bot_cousinade
 RUN chmod -R 775 /opt/bot_cousinade
 
-RUN python3 -m pip install --upgrade pip
-
 # Création de l'environnement virtuel et installation des librairies
 RUN python3 -m venv /opt/bot_cousinade \
+&& /opt/bot_cousinade/bin/python3 -m pip install --upgrade pip \
 && /opt/bot_cousinade/bin/pip3 install -r /opt/bot_cousinade/requirements.txt
 
 # Redémarrage des daemons et démarrage du service cousinade
