@@ -15,9 +15,9 @@ RUN adduser --system --no-create-home --shell=/sbin/nologin cousinade
 # && /opt/bin/pip3 install -r requirements.txt
 
 # Redémarrage des daemons et démarrage du service cousinade
-RUN systemctl daemon-reload \
-&& systemctl enable cousinade.service \
-&& systemctl start cousinade.service
+# RUN systemctl daemon-reload \
+# && systemctl enable cousinade.service \
+# && systemctl start cousinade.service
 
 CMD tail -f /dev/null 
 
