@@ -11,7 +11,7 @@ RUN chmod -R 775 /opt/bot_cousinade
 
 # Création de l'environnement virtuel et installation des librairies
 RUN python3 -m venv /opt/bot_cousinade \
-&& /opt/bin/pip3 install -r requirements.txt
+&& /opt/bot_cousinade/bin/pip3 install -r requirements.txt
 
 # Redémarrage des daemons et démarrage du service cousinade
 RUN systemctl daemon-reload \
