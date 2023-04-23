@@ -11,6 +11,8 @@ Il faut aussi créer un fichier **.env** à la racine du projet contenant les va
 ```
 DISCORD_TOKEN={Le token de votre bot}
 COUSINADE_CHANNEL={L'ID du channel}
+DATE={La date de la cousinade}
+SENDING={'True' ou 'False' selon si vous voulez les notifications du compte à rebours ou non}
 ```
 
 ## Pour le lancer avec Docker :
