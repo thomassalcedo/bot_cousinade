@@ -23,7 +23,8 @@ RUN apt -y update \
 # Redémarrage des daemons et démarrage du service cousinade
 RUN systemctl daemon-reload \
 && systemctl enable cousinade.service
-# && systemctl start cousinade.service
+
+VOLUME [ ".env" ]
 
 CMD systemctl start cousinade.service && tail -f /dev/null 
 
