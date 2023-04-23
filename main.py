@@ -59,6 +59,7 @@ async def stop(ctx):
     pass
 
 
+@bot.command()
 async def nouvelle_date(ctx):
     """Défini une nouvelle date pour la cousinade (Pas implémenté)"""
     pass
