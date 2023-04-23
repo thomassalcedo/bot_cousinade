@@ -119,7 +119,7 @@ async def jour_avant_la_cousinade():
 
         channel = bot.get_channel(int(COUSINADE_CHANNEL))
         await channel.send(
-            f"Vu que Eva ne fait plus son travail, je suis obligé de m'y mettre ...\nPlus que **{jour_restants} jour{pluriel}** avant la cousinade"
+            f"Plus que **{jour_restants} jour{pluriel}** avant la cousinade"
         )
     else:
         logging.info("Pas d'envoi")
