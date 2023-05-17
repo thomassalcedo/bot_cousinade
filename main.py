@@ -107,7 +107,7 @@ async def nouvelle_date(
 async def jour_avant_la_cousinade():
     if SENDING == "True":
         logging.info("JOUR AVANT LA COUSINADE")
-        jour_restants = (DATE - datetime.now()).days
+        jour_restants = (DATE - datetime.now()).days +1
         pluriel = "s"
 
         logging.info(f"Il reste {jour_restants} jours")
