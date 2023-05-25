@@ -111,16 +111,19 @@ async def jour_avant_la_cousinade():
         pluriel = "s"
 
         logging.info(f"Il reste {jour_restants} jours")
-        if jour_restants < 0:
-            return
-
-        if jour_restants == 1:
-            pluriel = ""
-
-        channel = bot.get_channel(int(COUSINADE_CHANNEL))
-        await channel.send(
-            f"Plus que **{jour_restants} jour{pluriel}** avant la cousinade"
-        )
+        
+        if jour_restants >= 0:
+            channel = bot.get_channel(int(COUSINADE_CHANNEL))
+            if jour_restants == 0:
+                await channel.send(
+                    f"C'est la cousinade !!!"
+                )
+            else:
+                if jour_restants == 1:
+                    pluriel = ""
+                await channel.send(
+                    f"Plus que **{jour_restants} jour{pluriel}** avant la cousinade"
+                )
     else:
         logging.info("Pas d'envoi")
 
