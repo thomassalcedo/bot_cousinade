@@ -108,7 +108,7 @@ async def jour_avant_la_cousinade():
     if SENDING == "True":
         logging.info("JOUR AVANT LA COUSINADE")
         jour_restants = (DATE - datetime.now()).days +1
-        pluriel = "s"
+        pluriel = "s" if jour_restants > 1 else ""
 
         logging.info(f"Il reste {jour_restants} jours")
         
@@ -119,8 +119,6 @@ async def jour_avant_la_cousinade():
                     f"C'est la cousinade !!!"
                 )
             else:
-                if jour_restants == 1:
-                    pluriel = ""
                 await channel.send(
                     f"Plus que **{jour_restants} jour{pluriel}** avant la cousinade"
                 )
