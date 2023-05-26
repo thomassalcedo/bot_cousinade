@@ -7,6 +7,7 @@ Il est recommandé de la faire dans un venv python (`python3 -m venv`).
 
 Installation avec **pip** : `pip3 install -r requirements.txt`  
 
+### Créer le fichier d'environnement
 Il faut aussi créer un fichier **.env** à la racine du projet contenant les variables suivante :  
 ```
 DISCORD_TOKEN={Le token de votre bot}
@@ -17,7 +18,7 @@ SENDING={'True' ou 'False' selon si vous voulez les notifications du compte à r
 
 ## Pour le lancer avec Docker :
 Il faut créer le fichier .env comme précédemment.  
-Le fichier n'est pas persistant, si le conteneur redémarre le fichier sera restauré.
+**Attention** : Ce fichier n'est **pas persistant**, si le conteneur redémarre le fichier sera **restauré**.  
 (TODO: rendre le fichier d'env persistant)
 
 Pour construire le conteneur :  
